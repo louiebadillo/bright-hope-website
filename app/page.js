@@ -200,7 +200,7 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <ProgramCard
                 aosDelay="0"
                 imageAlt="Caregiver interacting with a young child in a playful, supportive environment"
@@ -254,6 +254,25 @@ export default function HomePage() {
                   "Crisis safety planning",
                 ]}
                 linkText="Connect with Roots"
+                linkHref="/our-programs"
+                linkIcon="arrow_forward"
+              />
+
+              <ProgramCard
+                aosDelay="450"
+                imageAlt="Supportive care setting representing services for individuals with developmental disabilities"
+                imageSrc="/photos/brighthope10.jpg"
+                badgeIcon="accessible"
+                badgeBgClassName="bg-tertiary-container"
+                badgeIconClassName="text-on-tertiary-container"
+                title="Persons with Developmental Disabilities (DDS)"
+                description="Tailored support focused on independence and daily life skills."
+                bullets={[
+                  "24/7 support & crisis intervention",
+                  "Life skills coaching",
+                  "Community inclusion activities",
+                ]}
+                linkText="Learn More"
                 linkHref="/our-programs"
                 linkIcon="arrow_forward"
               />
