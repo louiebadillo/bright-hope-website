@@ -14,7 +14,8 @@ export default function HomePage() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            poster="/photos/brighthope11.jpg"
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-black/20" />

@@ -48,26 +48,27 @@ export function SiteHeader() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-bold hover:scale-105 transition-transform active:scale-95 shadow-sm inline-block"
+            className="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-bold hover:scale-105 transition-transform active:scale-95 shadow-sm"
+            onClick={onNavigate}
           >
             Get Support
           </Link>
-        </div>
 
-        <button
-          type="button"
-          className="md:hidden p-2 text-on-surface"
-          aria-label="Open menu"
-          aria-expanded={isMobileOpen}
-          onClick={() => setIsMobileOpen((v) => !v)}
-        >
-          <span className="material-symbols-outlined" data-icon="menu">
-            menu
-          </span>
-        </button>
+          <button
+            type="button"
+            className="md:hidden p-2 text-on-surface"
+            aria-label="Open menu"
+            aria-expanded={isMobileOpen}
+            onClick={() => setIsMobileOpen((v) => !v)}
+          >
+            <span className="material-symbols-outlined" data-icon="menu">
+              menu
+            </span>
+          </button>
+        </div>
       </div>
 
       {isMobileOpen ? (
