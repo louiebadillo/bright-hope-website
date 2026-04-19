@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
+const PLUMING_EAGLE_LODGE_PROGRAMS_URL =
+  "https://www.plumingeaglelodge.com/programs";
+
 function useCards() {
   return useMemo(
     () => [
@@ -92,6 +95,34 @@ function useCards() {
         actionColorClassName: "text-tertiary",
         actionTextMore: "Expand Program",
       },
+      {
+        id: "card-journey-belonging",
+        title: "Our Journey to Belonging Home",
+        partnerOrgName: "Pluming Eagle Lodge",
+        partnerProgramsUrl: PLUMING_EAGLE_LODGE_PROGRAMS_URL,
+        badge: "Ages 5 to 17",
+        badgeClassName:
+          "bg-secondary-fixed text-on-secondary-fixed-variant",
+        image: "/photos/brighthope8.jpg",
+        summary:
+          "Our Journey to Belonging Home provides a comprehensive, culturally safe environment for Indigenous children and youth aged 5 to 17. Offered through our sister organization Pluming Eagle Lodge’s group home programs, it supports healing from trauma while developing essential life skills and building a strong cultural identity. Each child receives personalized care with individualized healing plans. The program includes academic and vocational guidance, life skills training, and financial literacy education to prepare youth for independent living.",
+        detailsTitle: "Program Features",
+        detailsIcon: "cottage",
+        detailsIconClassName: "text-secondary",
+        bulletColorClassName: "bg-secondary",
+        bullets: [
+          "24/7 Supervision — Round-the-clock care and support in a safe, nurturing environment",
+          "Personalized Care — Individualized healing plans tailored to each child's unique needs",
+          "Academic & Vocational Guidance — Support for educational success and career planning",
+          "Life Skills Training — Practical skills development for independent living",
+          "Financial Literacy — Education in money management and financial planning",
+          "Cultural Identity Building — Programs that strengthen connection to Indigenous heritage",
+          "Trauma-Informed Care — Specialized support for healing from past experiences",
+          "Community Connection — Opportunities to build relationships with Elders and community",
+        ],
+        actionColorClassName: "text-secondary",
+        actionTextMore: "Program details",
+      },
     ],
     [],
   );
@@ -114,12 +145,6 @@ export function ProgramsContent() {
   return (
     <main className="bg-surface font-body text-on-surface selection:bg-primary-container pt-32 pb-20">
       <header className="max-w-7xl mx-auto px-8 mb-20 text-center md:text-left">
-        <div className="inline-flex items-center gap-2 bg-secondary-container/10 px-4 py-1.5 rounded-full mb-6">
-          <span className="w-2 h-2 rounded-full bg-secondary" />
-          <span className="text-secondary font-label uppercase tracking-widest text-xs font-bold">
-            Compassionate Care
-          </span>
-        </div>
         <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-tertiary tracking-tight mb-6 max-w-4xl">
           Programs Built on <span className="text-primary italic">Connection</span>{" "}
           and Growth.
@@ -316,11 +341,25 @@ export function ProgramsContent() {
               </button>
             </form>
 
-            <div className="mt-6 pt-6 border-t border-outline-variant/10 flex items-center gap-3 text-sm text-on-surface-variant font-medium">
-              <span className="material-symbols-outlined text-primary" data-icon="phone_in_talk">
-                phone_in_talk
-              </span>
-              <span>Or call us: 1800 BRIGHT HOPE</span>
+            <div className="mt-6 pt-6 border-t border-outline-variant/10 flex flex-col gap-3 text-sm text-on-surface-variant font-medium">
+              <a
+                className="flex items-center gap-3 hover:text-primary transition-colors"
+                href="tel:4038076088"
+              >
+                <span className="material-symbols-outlined text-primary shrink-0" data-icon="phone_in_talk">
+                  phone_in_talk
+                </span>
+                <span>Or call us: 403-807-6088</span>
+              </a>
+              <a
+                className="flex items-center gap-3 hover:text-primary transition-colors"
+                href="mailto:info@brighthopess.com"
+              >
+                <span className="material-symbols-outlined text-primary shrink-0" data-icon="mail">
+                  mail
+                </span>
+                <span>info@brighthopess.com</span>
+              </a>
             </div>
           </div>
         </aside>
@@ -381,12 +420,18 @@ function ProgramCard({ card, isExpanded, onToggle }) {
         <h2 className="font-headline text-2xl font-bold text-tertiary mb-3">
           {card.title}
         </h2>
+        {card.partnerOrgName ? (
+          <p className="text-sm font-semibold text-secondary mb-4">
+            {card.partnerOrgName}
+            <span className="font-normal text-on-surface-variant"> — Sister organization</span>
+          </p>
+        ) : null}
         <p className="text-on-surface-variant mb-6 leading-relaxed">{card.summary}</p>
 
         <div className="program-card-details">
           {card.id === "card-strong-roots" ? (
             <div className="pt-4 border-t border-outline-variant/10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <h4 className="font-bold text-on-surface text-sm uppercase tracking-wider">
                     Holistic Care
@@ -448,10 +493,6 @@ function ProgramCard({ card, isExpanded, onToggle }) {
                   </ul>
                 </div>
               </div>
-
-              <button className="w-full mb-6 bg-tertiary text-on-tertiary py-3 rounded-xl font-bold hover:bg-tertiary/90 transition-colors">
-                Enroll in Strong Roots
-              </button>
             </div>
           ) : (
             <div className="pt-4 border-t border-outline-variant/10">
@@ -474,6 +515,12 @@ function ProgramCard({ card, isExpanded, onToggle }) {
                   </li>
                 ))}
               </ul>
+              {card.partnerOrgName && card.partnerProgramsUrl ? (
+                <PartnerSiteLink
+                  href={card.partnerProgramsUrl}
+                  organizationName={card.partnerOrgName}
+                />
+              ) : null}
             </div>
           )}
         </div>
@@ -493,6 +540,22 @@ function ProgramCard({ card, isExpanded, onToggle }) {
         </button>
       </div>
     </section>
+  );
+}
+
+function PartnerSiteLink({ href, organizationName }) {
+  return (
+    <a
+      className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-4 font-headline font-bold text-on-tertiary shadow-md transition-colors hover:bg-tertiary/90"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className="material-symbols-outlined text-xl" data-icon="open_in_new">
+        open_in_new
+      </span>
+      Explore Programs at {organizationName}
+    </a>
   );
 }
 

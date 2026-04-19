@@ -100,7 +100,7 @@ export default async function ContactPage() {
                   Full Name
                 </label>
                 <input
-                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-sm placeholder:text-stone-400"
+                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-base md:text-sm placeholder:text-stone-400"
                   placeholder="John Doe"
                   type="text"
                 />
@@ -110,7 +110,7 @@ export default async function ContactPage() {
                   Email
                 </label>
                 <input
-                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-sm placeholder:text-stone-400"
+                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-base md:text-sm placeholder:text-stone-400"
                   placeholder="hello@example.com"
                   type="email"
                 />
@@ -123,7 +123,7 @@ export default async function ContactPage() {
                   Phone
                 </label>
                 <input
-                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-sm placeholder:text-stone-400"
+                  className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-base md:text-sm placeholder:text-stone-400"
                   placeholder="403-000-0000"
                   type="tel"
                 />
@@ -132,7 +132,7 @@ export default async function ContactPage() {
                 <label className="block text-xs font-bold text-stone-500 uppercase tracking-wider px-1">
                   Program of Interest
                 </label>
-                <select className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-sm text-on-surface appearance-none">
+                <select className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-base md:text-sm text-on-surface appearance-none">
                   <option disabled value="">
                     Select a program
                   </option>
@@ -150,7 +150,7 @@ export default async function ContactPage() {
                 Message
               </label>
               <textarea
-                className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-sm placeholder:text-stone-400"
+                className="w-full bg-surface-container-low border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-primary/20 transition-all text-base md:text-sm placeholder:text-stone-400"
                 placeholder="How can we support you today?"
                 rows={4}
               />

@@ -1,34 +1,29 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function SiteFooter() {
   return (
     <footer className="w-full bg-surface-container-low pt-20 pb-10 font-body">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           <div className="space-y-6">
-            <h4 className="text-xl font-bold text-on-surface">Bright Hope</h4>
+            <Link
+              href="/"
+              className="inline-flex max-w-[min(100%,320px)]"
+              aria-label="Bright Hope Support Services home"
+            >
+              <Image
+                src="/bhsslogo2.png"
+                alt=""
+                width={320}
+                height={160}
+                className="h-auto w-full object-contain object-left"
+              />
+            </Link>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Guided by dignity and respect, we support children, youth, and
               families through critical moments of transition and change.
             </p>
-            <div className="flex gap-4">
-              <a
-                className="text-on-surface-variant hover:text-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined" data-icon="share">
-                  share
-                </span>
-              </a>
-              <a
-                className="text-on-surface-variant hover:text-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined" data-icon="mail">
-                  mail
-                </span>
-              </a>
-            </div>
           </div>
 
           <div className="space-y-6">
@@ -61,12 +56,12 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-on-surface-variant hover:text-primary hover:underline underline-offset-4 transition-all"
-                  href="#"
+                  href="/privacy-policy"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -104,27 +99,6 @@ export function SiteFooter() {
                 <span>Calgary, Alberta</span>
               </li>
             </ul>
-          </div>
-
-          <div className="space-y-6">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-secondary">
-              Stay Updated
-            </h4>
-            <p className="text-sm text-on-surface-variant">
-              Subscribe for community news and program updates.
-            </p>
-            <div className="flex gap-2">
-              <input
-                className="bg-surface-container-highest border-none rounded-lg w-full px-4 text-sm focus:ring-2 focus:ring-primary"
-                placeholder="Email address"
-                type="email"
-              />
-              <button className="bg-secondary text-white p-2 rounded-lg hover:bg-secondary-container transition-colors">
-                <span className="material-symbols-outlined text-base" data-icon="send">
-                  send
-                </span>
-              </button>
-            </div>
           </div>
         </div>
 

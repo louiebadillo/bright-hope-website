@@ -22,13 +22,6 @@ export default function HomePage() {
 
           <div className="max-w-7xl mx-auto relative z-10 w-full">
             <div className="max-w-3xl space-y-8" data-aos="fade-up" data-aos-duration="1000">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-full">
-                <span className="w-2 h-2 bg-secondary rounded-full" />
-                <span className="text-sm font-label font-bold tracking-widest uppercase text-secondary">
-                  Community First
-                </span>
-              </div>
-
               <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
                 Together, We Grow.
                 <br />
@@ -53,7 +46,7 @@ export default function HomePage() {
                   href="/our-programs"
                   className="bg-white/90 text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-white transition-colors inline-flex items-center"
                 >
-                  Explore Workshops
+                  Explore Programs
                 </Link>
               </div>
             </div>

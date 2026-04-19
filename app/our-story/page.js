@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function OurStoryPage() {
   return (
@@ -254,18 +255,18 @@ export default async function OurStoryPage() {
             <h4 className="font-headline font-bold text-on-surface mb-1">Email</h4>
             <p className="text-sm font-medium">info@brighthopess.com</p>
           </a>
-          <a
+          <Link
             className="group p-8 bg-surface-container-low rounded-xl hover:bg-primary-container transition-all duration-300 transform hover:-translate-y-2"
-            href="https://www.brighthopess.com"
-            target="_blank"
-            rel="noreferrer"
+            href="/contact"
           >
             <span className="material-symbols-outlined text-primary group-hover:text-on-primary-container text-4xl mb-4">
-              language
+              contact_mail
             </span>
-            <h4 className="font-headline font-bold text-on-surface mb-1">Website</h4>
-            <p className="text-sm font-medium">www.brighthopess.com</p>
-          </a>
+            <h4 className="font-headline font-bold text-on-surface mb-1">
+              Contact form
+            </h4>
+            <p className="text-sm font-medium">Send us a message</p>
+          </Link>
         </div>
       </section>
     </main>

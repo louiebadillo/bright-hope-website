@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 
 const NAV_LINK_CLASS =
-  "font-headline font-semibold tracking-tight text-stone-600 dark:text-stone-400 dark:hover:text-green-400 transition-colors hover:text-primary";
+  "font-headline font-semibold tracking-tight text-stone-700 hover:text-primary transition-colors";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -25,14 +26,25 @@ export function SiteHeader() {
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href));
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md shadow-sm">
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <nav
+      className="fixed inset-x-0 top-0 z-50 isolate bg-white pt-[env(safe-area-inset-top)] [transform:translateZ(0)]"
+      aria-label="Primary"
+    >
+      <div className="flex h-[4.25rem] shrink-0 items-center justify-between px-8 md:h-[4.5rem] max-w-7xl mx-auto">
         <Link
           href="/"
-          className="text-2xl font-black text-green-900 dark:text-green-500 tracking-tighter"
+          className="flex shrink-0 items-center leading-none"
           onClick={onNavigate}
+          aria-label="Bright Hope Support Services home"
         >
-          Bright Hope
+          <Image
+            src="/bhsslogo.png"
+            alt=""
+            width={280}
+            height={88}
+            priority
+            className="block h-9 w-auto bg-transparent object-contain object-left md:h-10 [&_img]:block"
+          />
         </Link>
 
         <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 space-x-8">
@@ -59,7 +71,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="md:hidden p-2 text-on-surface"
+            className="md:hidden p-2 text-stone-700"
             aria-label="Open menu"
             aria-expanded={isMobileOpen}
             onClick={() => setIsMobileOpen((v) => !v)}
@@ -72,7 +84,7 @@ export function SiteHeader() {
       </div>
 
       {isMobileOpen ? (
-        <div className="md:hidden border-t border-outline-variant/30 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md">
+        <div className="md:hidden border-t border-stone-200 bg-white">
           <div className="max-w-7xl mx-auto px-8 py-4 flex flex-col gap-3">
             {items.map((item) => (
               <Link
